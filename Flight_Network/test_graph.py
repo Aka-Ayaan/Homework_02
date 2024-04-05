@@ -1,7 +1,7 @@
 import pytest
 import json
 import hashlib
-from solution_graph import *
+from skeleton_graph import *
 
 
 
