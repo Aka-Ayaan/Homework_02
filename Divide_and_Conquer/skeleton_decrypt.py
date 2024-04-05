@@ -41,7 +41,7 @@ def main(filename) -> list[tuple[int, int]]:
 
     return result
 
-if __name__ == '__main__':
-    main('input_decrypt.txt')
-    x = [[(2, 1), (6, 10), (4, 9)], [(2, 8), (6, 20), (4, 12)], (0, 37)]
-    print(reverse_karatsuba(x))
+# if __name__ == '__main__':
+#     main('input_decrypt.txt')
+#     x = [[(2, 1), (6, 10), (4, 9)], [(2, 8), (6, 20), (4, 12)], (0, 37)]
+#     print(reverse_karatsuba(x))
