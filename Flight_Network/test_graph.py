@@ -1,7 +1,8 @@
 import pytest
 import json
 import hashlib
-from skeleton_graph import *
+from solution_graph import *
+
 
 
 def get_hash(object):
