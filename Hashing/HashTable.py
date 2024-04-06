@@ -5,7 +5,6 @@ def create_hashtable(size): # returns tuple(list,list)
     
     return ([None] * size, [None] * size)
 
-
 def isPrime(n):
      
     # Corner cases 
@@ -133,18 +132,18 @@ def Update(hashtable,key, columnName, data,size,collision_path,opNumber): # retu
     pass
         
 def get(hashtable,key,size,collision_path,opNumber): # returns dictionary
-    
-    count = 1
+
     start = hash_function(key,size)
     pos = start
+
+    while hashtable[0][pos] != None and hashtable[0][pos] != '#':
     
-    while hashtable[0][pos] != None:
         if hashtable[0][pos] == key:
             return hashtable[1][pos]
+    
         else:
-            pos = collision_resolver(start,size,count)
-            collision_path[start].append(pos)
-            count += 1
+            collision_path[opNumber].append(pos)
+            pos = collision_resolver(key, pos, size)
             if pos == start:
                 return 'Item not found'
             
@@ -160,12 +159,18 @@ def delete(hashtable, key, size,collision_path,opNumber): #returns hashtable, si
     
     if hashtable[0][hashvalue] != key:
         newhash = collision_resolver(key, hashvalue, size)
+        
         while hashtable[0][newhash] != key and count != size:
-            newhash = collision_resolver(key, newhash,size,)
-            collision_path[hashvalue].append(newhash)
+            collision_path[opNumber].append(newhash)
+            newhash = collision_resolver(key, newhash,size)
+        
         if hashtable[0][newhash] == key:
             hashtable[0][newhash] = "#"
             hashtable[1][newhash] = "#"
+    
     else:
         hashtable[0][hashvalue] = "#"
         hashtable[1][hashvalue] = "#"
+
+    if loadFactor(hashtable,size) < 0.25:
+        hashtable,size = resize_hashtable(hashtable,size,False)
