@@ -59,7 +59,7 @@ def create_flight_network(filename: str, option: int):
         for i in data:
             edges.append((i[0], i[1], int(i[3])))
         addEdges(G, edges)
-    
+
     return G
 
 # Helper Function for getting neighbours of a node
@@ -190,7 +190,7 @@ def remove_flight(graph: dict, origin: str, destination: str):
 
     for edge in graph[destination]:
         if edge[0] == origin:
-            graph[destination].remove(edge)        
+            graph[destination].remove(edge)
 
 def remove_airport(graph: dict, city: str):
     
@@ -312,11 +312,11 @@ def main():
 
     # remove_flight(G, "Dubai", "Seattle")
 
-    print(find_all_routes(G, "Dubai", "Seattle"))
+    # print(find_all_routes(G, "Dubai", "Seattle"))
     # should output the following:
     # [['Dubai', 'Seattle', 'Dubai'], ['Dubai', 'Seattle', 'Boston', 'Dubai'], ['Dubai', 'Boston', 'Seattle', 'Dubai'], ['Dubai', 'Boston', 'Dubai'], ['Dubai', 'Seattle', 'Boston', 'Seattle', 'Dubai'], ['Dubai', 'Boston', 'Seattle', 'Boston', 'Dubai'], ['Dubai', 'Boston', 'Seattle', 'Dubai'], ['Dubai', 'Seattle', 'Boston', 'Seattle', 'Boston', 'Dubai'], ['Dubai', 'Boston', 'Seattle', 'Boston', 'Seattle', 'Dubai'], ['Dubai', 'Boston', 'Seattle', 'Boston', 'Dubai'], ['Dubai', 'Boston', 'Seattle', 'Boston', 'Seattle', 'Boston', 'Dubai']]
 
-    print(find_number_of_layovers(G, "Dubai", "Seattle"))
+    # print(find_number_of_layovers(G, "Dubai", "Seattle"))
 
     # print(G)
 
