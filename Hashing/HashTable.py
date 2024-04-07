@@ -114,7 +114,7 @@ def loadFactor(hashtable, size): # returns a float - Loadfactor of hashtable
     count = 0
     
     for i in hashtable[0]:
-        if i is not None and i != '#':
+        if i is not None and i != '#':   # Checks for the number of filled slots (tombstones not counted)
             count += 1
 
     return count / size
