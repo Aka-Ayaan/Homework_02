@@ -15,7 +15,8 @@ def reverse_karatsuba(data) -> tuple:
     # If the last element is a list, then it is a leaf node
     if isinstance(data[-1], list):
         last = reverse_karatsuba(last)
-    
+
+    # Return the original two numbers
     return (((last[0] * (10 ** len(str(first[0])))) + first[0]), ((last[1] * (10 ** len(str(first[1])))) + first[1]))
 
 # This function reads data from a specified file and decrypt data using the logic of the Karatsuba algorithm.
